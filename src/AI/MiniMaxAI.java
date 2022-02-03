@@ -40,20 +40,19 @@ public class MiniMaxAI {
         buildTree();
         minMaxMove(tree.getRoot(), depth, playerNumber(), true, MIN, MAX);
         Node testNode = tree.getRoot();
-        ArrayList<Node> kindjes;
-        kindjes = testNode.getChildren();
+        ArrayList<Node> kindjes = testNode.getChildren();
         int eval = MIN;
+
         Node bestNode = null;
 
         for (Node node : kindjes) {
-            System.out.println("check level 1 of loop");
             if (eval < node.getEval()) {
-                System.out.println("check level 2 of loop");
                 bestNode = node;
+                eval = bestNode.getEval();
+                System.out.println("New node evaluation is: " + bestNode.getEval());
             }
         }
-        assert bestNode != null : "Ayo this shit is null";
-        System.out.println(bestNode.getMove());
+
         return bestNode.getMove();
     }
 
@@ -86,6 +85,8 @@ public class MiniMaxAI {
                 best = Math.max(best, val);
                 alpha = Math.max(alpha, best);
 
+                newNode.setEval(alpha);
+
                 if(beta <= alpha){
                     break;
                 }
@@ -100,8 +101,10 @@ public class MiniMaxAI {
 
                 int val = minMaxMove(newNode, depth - 1, playerFlip(playerTurn), true, alpha, beta);
 
-                best = Math.max(best, val);
-                beta = Math.max(beta, best);
+                best = Math.min(best, val);
+                beta = Math.min(beta, best);
+
+                newNode.setEval(beta);
 
                 if(beta <= alpha){
                     break;
@@ -128,11 +131,12 @@ public class MiniMaxAI {
 
         for (int i = 0; i < board.length; i++){
             if(board[i] == 1) {
-                counterValueOne += scores[i];
+                counterValueOne = counterValueOne + scores[i];
             } else if(board[i] == 2) {
-                counterValueTwo += scores[i];
+                counterValueTwo = counterValueTwo + scores[i];
             }
         }
+
         if (playerNumber() == 1) {
             return counterValueOne - counterValueTwo;
         } else {

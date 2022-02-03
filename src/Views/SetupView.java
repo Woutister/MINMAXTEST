@@ -342,7 +342,7 @@ public class SetupView {
                         hasGames = true;
                         break;
                     }
-                    case "reversi": {
+                    case "Reversi": {
                         dataController.setDatasetType(GameType.Reversi);
                         start.setDisable(false);
                         hasGames = true;
