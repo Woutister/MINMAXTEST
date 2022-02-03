@@ -74,6 +74,7 @@ public class MiniMaxAI {
 
             for(int i = 0; i < moves.size(); i++) {
                 Node newNode = new Node(reversiController.calculateMove(moves.get(i), playerTurn, root.getBoard()));
+                newNode.setMove(moves.get(i));
                 root.addChild(newNode);
 
                 int val = minMaxMove(newNode, depth - 1, playerFlip(playerTurn), false, alpha, beta);

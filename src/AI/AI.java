@@ -14,6 +14,7 @@ public class AI {
     private MiniMaxAI miniMaxAI;
     public AI() {
         this.dataController = DataController.getInstance();
+        miniMaxAI = new MiniMaxAI();
 
         totalTiles = 0;
     }

@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Node {
-    private List<Node> children;
+    private ArrayList<Node> children;
     private int[] board;
     private int move;
     private int eval;
 
     public Node(int[] board){
         this.board = board;
+        this.children = new ArrayList<>();
     }
 
     public void setMove(int move){

@@ -290,7 +290,7 @@ public class EventHandler {
                             dataController.setDatasetType(GameType.Tictactoe);
                             break;
                         }
-                        case "Reversi": {
+                        case "reversi": {
                             dataController.setDatasetType(GameType.Reversi);
                             break;
                         }
