@@ -115,7 +115,24 @@ public class MiniMaxAI {
     }
 
     private int evaluate(Node node){
-        return 0;
+        //tel alle waardes op van wit op het bord
+        //tel alle waardes op van zwart op het bord
+        int[] board = node.getBoard();
+        int counterValueOne = 0;
+        int counterValueTwo = 0;
+
+        for (int i = 0; i < board.length; i++){
+            if(board[i] == 1) {
+                counterValueOne += scores[i];
+            } else if(board[i] == 2) {
+                counterValueTwo += scores[i];
+            }
+        }
+        if (playerNumber() == 1) {
+            return counterValueOne - counterValueTwo;
+        } else {
+            return counterValueTwo - counterValueOne;
+        }
     }
 
 
