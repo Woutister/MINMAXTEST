@@ -40,16 +40,20 @@ public class MiniMaxAI {
         buildTree();
         minMaxMove(tree.getRoot(), depth, playerNumber(), true, MIN, MAX);
         Node testNode = tree.getRoot();
-        List<Node> kindjes = testNode.getChildren();
+        ArrayList<Node> kindjes;
+        kindjes = testNode.getChildren();
         int eval = MIN;
         Node bestNode = null;
 
-        for(int i = 0; i < kindjes.size(); i++){
-            Node node = kindjes.get(i);
-            if(eval < node.getEval()){
+        for (Node node : kindjes) {
+            System.out.println("check level 1 of loop");
+            if (eval < node.getEval()) {
+                System.out.println("check level 2 of loop");
                 bestNode = node;
             }
         }
+        assert bestNode != null : "Ayo this shit is null";
+        System.out.println(bestNode.getMove());
         return bestNode.getMove();
     }
 
@@ -138,7 +142,7 @@ public class MiniMaxAI {
 
 
 
-    private ArrayList countMoves(int[] possibleMoves){
+    private ArrayList<Integer> countMoves(int[] possibleMoves){
         ArrayList<Integer> moves = new ArrayList<>();
         for(int i = 0; i < possibleMoves.length; i++){
             if (possibleMoves[i] == 1){

@@ -116,7 +116,7 @@ public class DataController {
      * @param difficulty the difficulty of the AI
      */
     public void setAiDifficulty(int difficulty) {
-        System.out.println("difficulty set to: " + difficulty);
+        System.out.println("difficulty set to: " + 3);
         aiDifficulty = 3;
     }
 

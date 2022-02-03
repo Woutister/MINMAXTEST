@@ -22,7 +22,7 @@ public class Node {
         this.eval = eval;
     }
 
-    public List getChildren(){
+    public ArrayList<Node> getChildren(){
         return children;
     }
 

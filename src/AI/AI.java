@@ -59,6 +59,7 @@ public class AI {
             }
             case 3:{
                 move = miniMaxAI.getMove(7);
+                System.out.println("the move is: " + move);
                 break;
             }
             default: {
