@@ -6,6 +6,7 @@ import Models.Node;
 import Models.Tree;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MiniMaxAI {
 
@@ -28,7 +29,19 @@ public class MiniMaxAI {
 
     public int getMove(int depth){
         buildTree();
-        return minMaxMove(tree.getRoot(), depth, playerNumber(), true, MIN, MAX);
+        minMaxMove(tree.getRoot(), depth, playerNumber(), true, MIN, MAX);
+        Node testNode = tree.getRoot();
+        List<Node> kindjes = testNode.getChildren();
+        int eval = MIN;
+        Node bestNode = null;
+
+        for(int i = 0; i < kindjes.size(); i++){
+            Node node = kindjes.get(i);
+            if(eval < node.getEval()){
+                bestNode = node;
+            }
+        }
+        return bestNode.getMove();
     }
 
     private int playerNumber(){
