@@ -16,6 +16,15 @@ public class MiniMaxAI {
 
     private static int MIN = Integer.MIN_VALUE;
     private static int MAX = Integer.MAX_VALUE;
+    private static int[] scores = {
+        1616, -303, 99, 43, 43, 99, -303, 1616,
+        -412, -181, -8, -27, -27, -8, -181, -412,
+        133, -4, 51, 7, 7, 51, -4, 133,
+        63, -18, -4, -1, -1, -4, -18, 63,
+        63, -18, -4, -1, -1, -4, -18, 63,
+        133, -4, 51, 7, 7, 51, -4, 133,
+        -412, -181, -8, -27, -27, -8, -181, -412,
+        1616, -303, 99, 43, 43, 99, -303, 1616};
 
     public MiniMaxAI(){
         this.dataController = DataController.getInstance();
